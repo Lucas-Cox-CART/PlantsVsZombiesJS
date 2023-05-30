@@ -1,0 +1,9 @@
+ThreeJS: npm install --save three
+
+Vite DevTool: npm install --save-dev vite
+
+LocalHost Create: npx vite
+
+React: npm install react react-dom
+
+React DevTools upgrade: npm install -g react-devtools
