@@ -1,5 +1,11 @@
 p {
-    font-family: 'dwarven_stonecraroughlycarved', Arial, sans-serif;
+    font-family: 'burbank_big_condensedbold', Arial, sans-serif;
+    font-weight:normal;
+    font-style:normal;
+}
+
+nav {
+    font-family: 'briannes_handregular', Arial, sans-serif;
     font-weight:normal;
     font-style:normal;
 }
