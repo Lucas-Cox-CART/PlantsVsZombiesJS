@@ -1,7 +1,9 @@
-import '../styles/style.css';
+import '../../styles/origin/style.css';
 
 let width = window.innerWidth;
 let height = window.innerHeight;
+
+let index = document.getElementById('index');
 
 // Window Resize Detection (FontSize Adjustment)
 window.addEventListener('resize', (e) => {
@@ -65,38 +67,56 @@ switch(pound) {
 levelDisplay.innerText = `Level ${stage[0]} - ${stage[1]}`;
 
 // Menu Options Click Event
-let notification = document.getElementById('notification');
-let timeoutLock = true;
+let transitionEndEventName = function getTransitionEndEventName() {
+    var transitions = {
+        "transition"      : "transitionend",
+        "OTransition"     : "oTransitionEnd",
+        "MozTransition"   : "transitionend",
+        "WebkitTransition": "webkitTransitionEnd"
+    }
+    for(let transition in transitions) {
+        if (notification.style[transition] != undefined) {
+            return transitions[transition];
+        } 
+    }
+}
 
-let expunge;
+let notification = document.createElement('div');
+let innerPackage = {
+    button: document.createElement('button'),
+    form: document.createElement('form'),
+    p: document.createElement('p')
+};
+notification.classList.add('notification');
+innerPackage.button.classList.add('expungeManual');
+innerPackage.button.addEventListener('click', (e) => {
+    index.removeChild(notification);
+});
+innerPackage.form.classList.add('exitSign');
+innerPackage.p.innerText = "Please execuse me as This feature hasn't been implemented yet. Forgive me! 😖";
+innerPackage.button.append(innerPackage.form);
+notification.append(innerPackage.button, innerPackage.p);
+
 [0, 1, 2, 3].forEach((button) => {
     tombstoneOptions[button].addEventListener('click', (e) => {
         if (button == 0) {
             window.location.href = `../levels/adventure/${currentLevel}.html`;
         } else if (button == 1) {
-            notification.style.animationName = "incomplete";
-            if (timeoutLock == true) {
-                expunge = setTimeout(expungeNotif, 7000, 1);
+            if (index.contains(notification) == true) {
+                index.removeChild(notification);
+                index.append(notification);
+            } else {
+                index.append(notification);
             }
-            timeoutLock = false;
         } else if (button == 2) {
-            notification.style.animationName = "incomplete";
-            if (timeoutLock == true) {
-                expunge = setTimeout(expungeNotif, 7000, 1);
+            if (index.contains(notification) == true) {
+                index.removeChild(notification);
+                index.append(notification);
+            } else {
+                index.append(notification);
             }
-            timeoutLock = false;
         } else if (button == 3) {
-            window.location.href = "../levels/survival/survival.html";
+            window.location.href = "../levels/survival/survival-lawn.html";
         }
     });
 });
-
-let expungeManual = document.getElementById('expungeManual');
-expungeManual.addEventListener('click', (e) => {
-    notification.remove();
-});
-
-function expungeNotif(t) {
-    notification.style.animationName = "incompleteRev";
-    timeoutLock = true;
-}

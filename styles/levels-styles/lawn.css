@@ -1,0 +1,13 @@
+#gridLawn {
+    display: grid;
+    grid: repeat(5, 21%) / auto-flow;
+    height: 90%;
+    width: 84%;
+    background-color: black;
+}
+
+.gridChild {
+    height: 180px;
+    width: 180px;
+    background-color: green;
+}
