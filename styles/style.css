@@ -3,6 +3,68 @@
     padding: 0;
 }
 
+#notification {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 25%;
+    top: 4%;
+    left: 37%;
+    position: absolute;
+    z-index: 99;
+
+    background-color: rgba(42, 44, 44, 0.4);
+    color: black;
+    font-family: 'houseofterrorregular';
+    font-size: 1.5rem;
+    border: 2px solid black;
+    border-radius: 20px;
+    filter: opacity(0);
+    animation-name: none;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+
+#notification p {
+    margin: 0 5% 0 5%;
+}
+
+#notification button {
+    height: 14%;
+    width: 4%;
+}
+
+#notification button form {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(42, 44, 44, 0.4);
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+}
+
+#notification button form:hover {
+    background-color: black;
+}
+
+@keyframes incomplete {
+    0% {
+        filter: opacity(0);
+    }
+    100% {
+        filter: opacity(1);
+    }
+}
+
+@keyframes incompleteRev {
+    0% {
+        filter: opacity(1);
+    }
+    100% {
+        filter: opacity(0);
+    }
+}
+
 .tombstoneMenu {
     display: flex;
     flex-direction: column;
@@ -17,15 +79,7 @@
     transform: skewY(12deg) translate3d(63vw, -19vh, 10px) rotate3d(0, 1, 0, 25deg);
     position: relative;
     z-index: 99;
-}
-
-.tombstone3D {
-    height: 80vh;
-    width: 30%;
-    background-color: #373742;
-    border: 7px solid black;
-    border-radius: 10px;
-    transform: skewY(12deg) translate3d(64vw, -103vh, 10px) rotate3d(0, 1, 0, 25deg);
+    box-shadow: 4px -4px 0px #373742, 7px -8px 0px black;
 }
 
 .tombstoneMenu article {
@@ -52,15 +106,15 @@
         transform: none;
     }
     100% {
-        box-shadow: 5px -5px 0px rgba(0, 0, 0, 0.8);
-        transform: translate3d(-2px, 0, 0);
+        box-shadow: 6px -6px 0px rgba(0, 0, 0, 0.8);
+        transform: translate3d(-1px, 1px, 0);
     }
 }
 
 @keyframes tombstoneOptionHoverRev {
     0% {
-        box-shadow: 5px -5px 0px rgba(0, 0, 0, 0.8);
-        transform: translate3d(-2px, 0, 0);
+        box-shadow: 6px -6px 0px rgba(0, 0, 0, 0.8);
+        transform: translate3d(-1px, 1px, 0);
     }
     100% {
         box-shadow: 4px -4px 0px rgba(0, 0, 0, 0.8);
@@ -77,16 +131,15 @@ div[id="levelCount"] {
     background-color: black;
     color: white;
     font-family: 'dwarven_stonecraroughlycarved';
-    font-size: 1.15rem;
     box-shadow: 2px -2px 0px rgba(0, 0, 0, 0.8);
 }
 
 .tombstoneMenu article h2 {
     font-family: 'dwarven_stonecraroughlycarved';
-    font-size: 5rem;
-    text-shadow: 1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.8);
+    text-shadow: -1px 2px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.8);
     animation-duration: 500ms;
     animation-fill-mode: forwards;
+    animation-timing-function: none;
 }
 
 @keyframes tombstoneOptionText {
@@ -94,19 +147,21 @@ div[id="levelCount"] {
         text-shadow: 1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.8);
     }
     100% {
-        text-shadow: 1px -2px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.8);
+        text-shadow: 3px -2px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.8);
     }
 }
 
 @keyframes tombstoneOptionTextRev {
     0% {
-        text-shadow: 1px -2px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.8);
+        text-shadow: 3px -2px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.8);
     }
     100% {
-        text-shadow: 1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.8);
+        text-shadow: -1px 2px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.8);
     }
 }
 
-.tombstoneMenu article h2::selection {
+.tombstoneMenu article h2::selection,
+div[id="levelCount"]::selection {
     background-color: transparent;
+    text-shadow: none;
 }
