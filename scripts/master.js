@@ -37,7 +37,7 @@ const levelDisplay = document.getElementById('levelCount');
 levelDisplay.style.fontSize = `${width/1780}rem`;
 
 let stage = [1, 1];
-let pound = Math.floor(stage[1]/3.5);
+let pound = Math.floor(stage[1]/3.3);
 let level = stage[1] - (3*pound);
 let currentLevel;
 
@@ -52,9 +52,12 @@ switch(pound) {
         currentLevel = 'lawn';
         break;
     case 1:
-        currentLevel = 'pool';
+        currentLevel = 'night';
         break;
     case 2:
+        currentLevel = 'pool';
+        break;
+    case 3:
         currentLevel = 'roof';
         break;
 }
@@ -69,7 +72,7 @@ let expunge;
 [0, 1, 2, 3].forEach((button) => {
     tombstoneOptions[button].addEventListener('click', (e) => {
         if (button == 0) {
-            window.location.href = `../levels/${currentLevel}.html`;
+            window.location.href = `../levels/adventure/${currentLevel}.html`;
         } else if (button == 1) {
             notification.style.animationName = "incomplete";
             if (timeoutLock == true) {
@@ -83,7 +86,7 @@ let expunge;
             }
             timeoutLock = false;
         } else if (button == 3) {
-            window.location.href = "../levels/survival.html";
+            window.location.href = "../levels/survival/survival.html";
         }
     });
 });
