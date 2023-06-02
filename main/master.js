@@ -1,4 +1,4 @@
-import './style.css';
+import './style.scss';
 
 let width = window.innerWidth;
 let height = window.innerHeight;
