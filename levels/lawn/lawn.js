@@ -5,14 +5,20 @@ const normalWidth = window.innerWidth;
 const normalHeight = window.innerHeight;
 let width = window.innerWidth;
 let height = window.innerHeight;
+let lawnWrapper = document.getElementById('lawnWrapper');
 
 window.addEventListener('resize', (e) => {
     window.location.reload();
 });
 
 // Pause Game
-
-
+let pausedGame = document.createElement('section');
+pausedGame.classList.add('pausedGame');
+window.addEventListener('keypress', function(event) {
+    if (event.key == 27) {
+        lawnWrapper.appendChild(pausedGame);
+    }
+});
 
 
 // Game Grid + Tiles
