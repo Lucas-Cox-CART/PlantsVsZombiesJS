@@ -1,15 +1,47 @@
 #lawnWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
+}
+
+#selectedPlants {
     display: flex;
-    justify-content: center;
+    width: 80%;
+    height: 15vh;
+    position: relative;
+    left: -162px;
+    top: -7px;
+    z-index: 99;
+    
+    background-color: #8f3b1f;
+    border: 2px solid #67310d;
+    border-radius: 15px;
+
+    #sunCount {
+        display: flex;
+        width: 10%;
+        height: 100%;
+
+        background-color: #512110;
+        border: 1px solid black;
+        border-radius: 15px;
+    }
+
+    #example {
+        display: flex;
+        width: 10%;
+        height: 100%;
+    }
 }
 
 #gridLawn {
     display: grid;
     background-color: chartreuse;
     position: relative;
-    top: 11vh;
+    top: -4vh;
 }
 
 .gridChild {

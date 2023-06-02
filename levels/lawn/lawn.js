@@ -1,4 +1,5 @@
 import './lawn.scss';
+import '../source.js';
 
 const normalWidth = window.innerWidth;
 const normalHeight = window.innerHeight;
@@ -9,6 +10,12 @@ window.addEventListener('resize', (e) => {
     window.location.reload();
 });
 
+// Pause Game
+
+
+
+
+// Game Grid + Tiles
 let playableGrid = document.getElementById('gridLawn');
 playableGrid.style.height = `${100*(height/normalHeight)-12}vh`;
 playableGrid.style.width = `${100*(width/normalWidth)-21}%`;
@@ -39,6 +46,13 @@ for (let i = 0; i < 45; i++) {
             }
         });
     });
-
     playableGrid.append(gridBox[i]);
 }
+
+// Plant Selection
+let selectedPlants = document.getElementById('selectedPlants');
+
+let example = document.getElementById('example');
+let plant0 = document.createElement('img');
+plant0.src = plants[1].sprite;
+example.appendChild(plant0);
