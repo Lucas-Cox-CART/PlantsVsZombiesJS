@@ -1,0 +1,18 @@
+#lawnWrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#gridLawn {
+    display: grid;
+    background-color: black;
+    position: relative;
+    top: 9vh;
+}
+
+.gridChild {
+    background-color: green;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
