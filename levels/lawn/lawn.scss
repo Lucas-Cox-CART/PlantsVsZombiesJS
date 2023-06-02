@@ -15,7 +15,7 @@
     width: 100%;
 }
 
-#selectedPlants {
+#UI {
     display: flex;
     width: 80%;
     height: 15vh;
@@ -38,7 +38,7 @@
         border-radius: 15px;
     }
 
-    #example {
+    .plant {
         display: flex;
         width: 10%;
         height: 100%;

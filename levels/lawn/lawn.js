@@ -56,9 +56,16 @@ for (let i = 0; i < 45; i++) {
 }
 
 // Plant Selection
-let selectedPlants = document.getElementById('selectedPlants');
+let UI = document.getElementById('UI');
+let addedPlants = [[], []];
 
-let example = document.getElementById('example');
-let plant0 = document.createElement('img');
-plant0.src = plants[1].sprite;
-example.appendChild(plant0);
+for (let i = 0; i < plants.length; i++) {
+    if (plants[i].selected == true) {
+        addedPlants[0][i] = document.createElement('div');
+        addedPlants[0][i].classList.add('plants');
+        addedPlants[1][i] = document.createElement('img');
+        addedPlants[1][i].src = plants[i].sprite;
+        addedPlants[0][i].appendChild(addedPlants[1][i]);
+        UI.appendChild(addedPlants[0][i]);
+    }
+}
