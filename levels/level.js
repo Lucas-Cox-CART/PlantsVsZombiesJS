@@ -1,5 +1,5 @@
-import './lawn.scss';
-import '../source.js';
+import './level.scss';
+import './assets.js';
 
 const normalWidth = window.innerWidth;
 const normalHeight = window.innerHeight;
@@ -7,9 +7,13 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 let lawnWrapper = document.getElementById('lawnWrapper');
 
-window.addEventListener('resize', (e) => {
-    window.location.reload();
-});
+function pageUpdate() {
+    window.addEventListener('resize', (e) => {
+        window.location.reload();
+    });
+}
+
+setInterval(() => {pageUpdate();}, 16);
 
 // Pause Game
 let pausedGame = document.createElement('section');
@@ -56,16 +60,34 @@ for (let i = 0; i < 45; i++) {
 }
 
 // Plant Selection
-let UI = document.getElementById('UI');
+let almanac = document.getElementById('plantSelection');
+for (let i = 0; i < plants.length; i++) {
+    almanac.append(almanacItems[i], startGameButton);
+}
 let addedPlants = [[], []];
 
-for (let i = 0; i < plants.length; i++) {
-    if (plants[i].selected == true) {
-        addedPlants[0][i] = document.createElement('div');
-        addedPlants[0][i].classList.add('plants');
-        addedPlants[1][i] = document.createElement('img');
-        addedPlants[1][i].src = plants[i].sprite;
-        addedPlants[0][i].appendChild(addedPlants[1][i]);
-        UI.appendChild(addedPlants[0][i]);
+startGameButton.addEventListener('click', (e) => {
+    almanac.remove();
+    lawnWrapper.style.display = "flex";
+    playablePlants();
+});
+
+function playablePlants() {
+    for (let i = 0; i < plants.length; i++) {
+        if (plants[i].selected == true) {
+            addedPlants[0][i] = document.createElement('div');
+            addedPlants[0][i].classList.add('plant');
+            addedPlants[1][i] = document.createElement('img');
+            addedPlants[1][i].src = plants[i].sprite;
+            addedPlants[0][i].appendChild(addedPlants[1][i]);
+            UI.appendChild(addedPlants[0][i]);
+        }
     }
+}
+
+// Planting Plants
+for (let i = 0; i < plants.length; i++) {
+    addedPlants[0][i].addEventListener('drag', (e) => {
+        
+    });
 }

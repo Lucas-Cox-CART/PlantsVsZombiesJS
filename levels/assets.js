@@ -6,8 +6,8 @@ let plants = [
         cost: 50,
         cooldown: 10,
         unlocked: true,
-        selected: Boolean,
-        sprite: '../../textures/plants/'
+        selected: false,
+        sprite: '../textures/plants/sunflower.gif'
     },
     {
         plant: 'peashooter',
@@ -16,8 +16,8 @@ let plants = [
         cost: 100,
         cooldown: 10,
         unlocked: true,
-        selected: Boolean,
-        sprite: '../../textures/plants/peashooter.gif'
+        selected: false,
+        sprite: '../textures/plants/peashooter.gif'
     },
     {
         plant: 'cherrybomb',
@@ -26,8 +26,8 @@ let plants = [
         cost: 150,
         cooldown: 60,
         unlocked: false,
-        selected: Boolean,
-        sprite: '../../textures/plants/'
+        selected: false,
+        sprite: '../textures/plants/walnut.gif'
     },
     {
         plant: 'walnut',
@@ -36,8 +36,8 @@ let plants = [
         cost: 50,
         cooldown: 45,
         unlocked: false,
-        selected: Boolean,
-        sprite: '../../textures/plants/'
+        selected: false,
+        sprite: '../textures/plants/'
     },
     {
         plant: 'potatomine',
@@ -46,8 +46,8 @@ let plants = [
         cost: 25,
         cooldown: 45,
         unlocked: false,
-        selected: Boolean,
-        sprite: '../../textures/plants/'
+        selected: false,
+        sprite: '../textures/plants/'
     },
     {
         plant: 'snowpea',
@@ -56,8 +56,8 @@ let plants = [
         cost: 175,
         cooldown: 30,
         unlocked: false,
-        selected: Boolean,
-        sprite: '../../textures/plants/'
+        selected: false,
+        sprite: '../textures/plants/'
     },
     {
         plant: 'chomper',
@@ -66,8 +66,8 @@ let plants = [
         cost: 150,
         cooldown: 30,
         unlocked: false,
-        selected: Boolean,
-        sprite: '../../textures/plants/'
+        selected: false,
+        sprite: '../textures/plants/'
     },
     {
         plant: 'repeater',
@@ -76,8 +76,8 @@ let plants = [
         cost: 200,
         cooldown: 30,
         unlocked: false,
-        selected: Boolean,
-        sprite: '../../textures/plants/'
+        selected: false,
+        sprite: '../textures/plants/'
     }
 ];
 
@@ -86,22 +86,42 @@ let zombies = [
         zombie: 'browncoat',
         health: 100,
         damage: 15,
-        sprite: '../../textures/zombies/'
+        sprite: '../textures/zombies/'
     },
     {
         zombie: 'conehead',
         health: 100,
         armor: 150,
         damage: 15,
-        sprite: '../../textures/zombies/',
-        accessory: '../../textures/armor'
+        sprite: '../textures/zombies/',
+        accessory: '../textures/armor'
     },
     {
         zombie: 'buckethead',
         health: 100,
         armor: 350,
         damage: 15,
-        sprite: '../../textures/zombies/',
-        accessory: '../../textures/armor'
+        sprite: '../textures/zombies/',
+        accessory: '../textures/armor'
     }
 ];
+
+let almanacItems = [];
+let almanacSprites = [];
+let startGameButton = document.createElement('span');
+startGameButton.innerText = "Let's Rock!";
+
+for (let i = 0; i < plants.length; i++) {
+    almanacItems[i] = document.createElement('div');
+    almanacItems[i].classList.add('almanacItems');
+    almanacSprites[i] = document.createElement('img');
+    almanacSprites[i].src = `${plants[i].sprite}`;
+    almanacItems[i].append(almanacSprites[i]);
+    almanacItems[i].addEventListener('click', (e) => {
+        if (plants[i].selected == true) {
+            plants[i].selected = false;
+        } else {
+            plants[i].selected = true;
+        }
+    });
+}

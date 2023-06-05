@@ -1,3 +1,54 @@
+body {
+    overflow: hidden;
+    height: inherit;
+    margin: 0;
+}
+
+#plantSelection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 90vh;
+    width: 90vw;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    z-index: 99;
+    background-color: #67310d;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    div {
+        height: 100px;
+        width: 100px;
+        border: 2px solid #67310d;
+        border-radius: 10px;
+
+        img {
+            height: 80%;
+            width: 100%;
+        }
+    }
+
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5%;
+        width: 12%;
+        position: relative;
+        left: -19%;
+        top: 93%;
+
+        color: green;
+        background-color: rgba(42, 44, 44, 0.4);
+        border: 1px solid black;
+        border-radius: 10px;
+        font-family: 'dwarven_stonecraroughlycarved', Arial, sans-serif;
+        font-size: 1.6rem;
+    }
+}
+
 .pausedGame {
     display: flex;
     width: 80%;
@@ -7,7 +58,7 @@
 }
 
 #lawnWrapper {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -22,7 +73,7 @@
     position: relative;
     left: -162px;
     top: -7px;
-    z-index: 99;
+    z-index: 98;
     
     background-color: #8f3b1f;
     border: 2px solid #67310d;
