@@ -100,7 +100,7 @@ notification.append(innerPackage.button, innerPackage.p);
 [0, 1, 2, 3].forEach((button) => {
     tombstoneOptions[button].addEventListener('click', (e) => {
         if (button == 0) {
-            window.location.href = `./${currentLevel}.html`;
+            window.location.href = `../levels/${currentLevel}.html`;
         } else if (button == 1) {
             if (index.contains(notification) == true) {
                 index.removeChild(notification);

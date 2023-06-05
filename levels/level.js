@@ -90,10 +90,25 @@ function playablePlants() {
 }
 
 // Planting Plants
+
+let selectedGrid;
+function selectionChange() {
+    for (let i = 0; i < plants.length; i++) {
+        gridBox[i].addEventListener('mouseover', (e) => {
+            return i;
+        });
+    }
+}
+setInterval(() => {selectionChange();}, 10);
+
 for (let i = 0; i < plants.length; i++) {
     addedPlants[0][i].addEventListener('dragstart', (e) => {
         addedPlants[0][i].addEventListener('dragend', (e) => {
-            onmousemove = function(e){console.log("mouse location:", e.clientX, e.clientY)}
+            setTimeout(() => {placePlant()}, 600);
+            function placePlant() {
+                gridBox[selectedGrid].append(addedPlants[0][i]);
+            }
+            // onmousemove = function(e){console.log("mouse location:", e.clientX, e.clientY)}
         });
     });
 }
