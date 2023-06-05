@@ -28,7 +28,7 @@ document.onkeydown = function (e) {
 
 // Game Grid + Tiles
 let playableGrid = document.getElementById('gridLawn');
-playableGrid.style.height = `${100*(height/normalHeight)-12}vh`;
+playableGrid.style.height = `${100*(height/normalHeight)-14}vh`;
 playableGrid.style.width = `${100*(width/normalWidth)-21}%`;
 playableGrid.style.grid = `repeat(5, 20%) / auto-flow`;
 let gridBox = [];
