@@ -18,11 +18,12 @@ setInterval(() => {pageUpdate();}, 16);
 // Pause Game
 let pausedGame = document.createElement('section');
 pausedGame.classList.add('pausedGame');
-window.addEventListener('keypress', function(event) {
-    if (event.key == 27) {
+document.onkeydown = function (e) {
+    if (e.keyCode == 27) {
         lawnWrapper.appendChild(pausedGame);
+        console.log('amogus');
     }
-});
+};
 
 
 // Game Grid + Tiles
@@ -72,13 +73,16 @@ startGameButton.addEventListener('click', (e) => {
     playablePlants();
 });
 
+for (let i = 0; i < plants.length; i++) {
+    addedPlants[0][i] = document.createElement('div');
+    addedPlants[0][i].classList.add('plant');
+    addedPlants[1][i] = document.createElement('img');
+    addedPlants[1][i].src = plants[i].sprite;
+}
+
 function playablePlants() {
     for (let i = 0; i < plants.length; i++) {
         if (plants[i].selected == true) {
-            addedPlants[0][i] = document.createElement('div');
-            addedPlants[0][i].classList.add('plant');
-            addedPlants[1][i] = document.createElement('img');
-            addedPlants[1][i].src = plants[i].sprite;
             addedPlants[0][i].appendChild(addedPlants[1][i]);
             UI.appendChild(addedPlants[0][i]);
         }
@@ -87,7 +91,9 @@ function playablePlants() {
 
 // Planting Plants
 for (let i = 0; i < plants.length; i++) {
-    addedPlants[0][i].addEventListener('drag', (e) => {
-        
+    addedPlants[0][i].addEventListener('dragstart', (e) => {
+        addedPlants[0][i].addEventListener('dragend', (e) => {
+            onmousemove = function(e){console.log("mouse location:", e.clientX, e.clientY)}
+        });
     });
 }
