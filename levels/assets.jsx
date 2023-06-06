@@ -105,23 +105,3 @@ let zombies = [
         accessory: '../textures/armor'
     }
 ];
-
-let almanacItems = [];
-let almanacSprites = [];
-let startGameButton = document.createElement('span');
-startGameButton.innerText = "Let's Rock!";
-
-for (let i = 0; i < plants.length; i++) {
-    almanacItems[i] = document.createElement('div');
-    almanacItems[i].classList.add('almanacItems');
-    almanacSprites[i] = document.createElement('img');
-    almanacSprites[i].src = `${plants[i].sprite}`;
-    almanacItems[i].append(almanacSprites[i]);
-    almanacItems[i].addEventListener('click', (e) => {
-        if (plants[i].selected == true) {
-            plants[i].selected = false;
-        } else {
-            plants[i].selected = true;
-        }
-    });
-}
