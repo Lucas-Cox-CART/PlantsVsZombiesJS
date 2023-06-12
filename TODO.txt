@@ -1,0 +1,21 @@
+- Index.html
+    - Add Mini-Games
+    - Add Puzzle Gamemode
+    - Add Survival Gamemode
+
+- Assets.js
+    - Add rest of plants
+    - Fix/add plant sprites, animations
+    - Add zombies, sprites, animations
+
+- Level.js
+    - Add indicator/animations for selecting a plant
+    - Lower texture resolution of grass for faster loading times
+    - Add ability to place plants, deductions from sun count
+    - Add zombie spawning, movement
+    - Add level progress, large waves (flags)
+
+- Lawn.html
+    - Add background
+
+- Make night, pool, and roof levels.
