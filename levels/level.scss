@@ -51,10 +51,20 @@ body {
 
 .pausedGame {
     display: flex;
-    width: 80%;
-    height: 90%;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    height: 75%;
     z-index: 99;
-    position: relative;
+    position: absolute;
+    top: 18%;
+    background-color: black;
+
+    .placeholder {
+        height: 90%;
+        width: 87.5%;
+        background-color: black;
+    }
 }
 
 #lawnWrapper {
@@ -109,4 +119,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     /* border: 1px solid rgba(0, 0, 0, 0.3); */
+}
+
+.selected {
+    filter: brightness(135%);
 }
